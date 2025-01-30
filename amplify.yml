@@ -10,6 +10,7 @@ frontend:
     build:
       commands:
         - npm run build
+        - curl -X POST -d {} "https://webhooks.amplify.us-west-2.amazonaws.com/prod/webhooks?id=bb968f3f-5c37-48a3-8d85-3f8679194c7b&token=gxDzTxxm3Hem8Bzx32figGfaVCNgDNwLF1B0duozg&operation=startbuild" -H "Content-Type:application/json"
   artifacts:
     baseDirectory: .next
     files:
