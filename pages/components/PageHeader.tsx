@@ -1,25 +1,22 @@
 import React from 'react';
-import Link from 'next/link';
-import styles from './PageHeader.module.css';
+import Image from 'next/image';
+import Navbar from './Navbar';
 
 const PageHeader = () => {
     return (
-        <nav className={styles.navbar}>
-            <ul className={styles.navList}>
-                <li className={styles.navItem}>
-                    <Link href="/">Home</Link>
-                </li>
-                <li className={styles.navItem}>
-                    <Link href="/programs">Programs</Link>
-                </li>
-                <li className={styles.navItem}>
-                    <Link href="/pricing">Pricing</Link>
-                </li>
-                <li className={styles.navItem}>
-                    <Link href="/instructors">Instructors</Link>
-                </li>
-            </ul>
-        </nav>
+        <div >
+            <Navbar />
+            <div className="w-full relative">
+                <div className="h-50 relative">
+                    <Image
+                        src="/assets/gradient-solid-banner.jpg"
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -4,14 +4,14 @@ import styles from "@/styles/Home.module.css";
 
 const PageFooter = () => {
     return (
-        <footer className={styles.footer}>
-            <div className={styles.container}>
+        <footer className={`${styles.footer} flex justify-around w-full`}>
+            <div className={`${styles.container} m-5`}>
                 <div>&copy; {new Date().getFullYear()} Tali Tech. All rights reserved.</div>
                 <div>
                     <div className="flex justify-around w-full">
                         <div>
                             <Link href="/about">
-                                About Us
+                                About
                             </Link>
                         </div>
                         <div>
