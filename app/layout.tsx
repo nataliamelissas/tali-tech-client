@@ -1,3 +1,5 @@
+import Navbar from './components/Navbar'
+import PageFooter from './components/PageFooter'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -12,8 +14,14 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body>{children}</body>
-        </html>
+            <html lang="en">
+                <body>
+                    <div className="min-h-screen flex flex-col">
+                        <Navbar />
+                        {children}
+                        <PageFooter />
+                    </div>
+                </body>
+            </html>
     )
 }

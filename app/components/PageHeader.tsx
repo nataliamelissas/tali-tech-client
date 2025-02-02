@@ -1,16 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import styles from "@/styles/PageHeader.module.scss";
 
-const PageHeader = () => {
+type PageHeaderProps = {
+    srcImg: string;
+};
+
+const PageHeader: React.FC<PageHeaderProps> = ({ srcImg }) => {
     return (
         <div>
-            <Navbar />
             <div className={styles.header}>
                 <div className={styles.banner}>
                     <Image
-                        src="/assets/gradient-solid-banner.jpg"
+                        src={srcImg}
                         alt="Banner Image"
                         layout="fill"
                         objectFit="cover"

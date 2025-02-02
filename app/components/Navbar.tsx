@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { useState } from 'react';
 import navStyle from "@/styles/Navbar.module.scss";
@@ -6,15 +7,13 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const getMenuClasses = () => isOpen ? navStyle.menuOpen : navStyle.menuClosed;
-
     return (
         <nav className={navStyle.navbar}>
             <div className={navStyle.navbarContainer}>
                 <a href="" className={navStyle.title}>
                     TaliTech
                 </a>
-                <div className={getMenuClasses()}>
+                <div className={isOpen ? navStyle.menuOpen : navStyle.menuClosed}>
                     <Link href="/" className={navStyle.navLink}>Home</Link>
                     <Link href="/courses" className={navStyle.navLink}>Courses</Link>
                     <Link href="/schools" className={navStyle.navLink}>At Schools</Link>
