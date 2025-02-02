@@ -15,17 +15,13 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// ${styles.page}
-
 export default function Home() {
   return (
     <>
       <TabHead />
       <div className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col`}> 
-        {/* <div id="header-container" className="sticky top-0 w-full z-50"> */}
-          <PageHeader />
-        {/* </div> */}
-        <div id="home-page-container" className="flex-1 mt-16">
+        <PageHeader />
+        <div id="home-page-container" className="flex-1">
           <HomePage/>
         </div>
         <div id="footer-container" className="mt-auto">

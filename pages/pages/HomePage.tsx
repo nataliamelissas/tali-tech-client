@@ -9,7 +9,7 @@ const HomePage = () => {
                 <div className="text-5xl font-bold text-cyan-500 font-comic-sans">
                   Welcome to <code className="text-orange-500">TaliTech</code>
                 </div>
-              <div className="text-xl text-gray-700 mt-2">A place where kids learn to code and create!</div>
+              <div className="text-xl text-gray-700 mt-2">Where kids learn to code and create!</div>
             </div>
             <div className={`${styles.ctas} flex justify-center space-x-4`}>
               <a

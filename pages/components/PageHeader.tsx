@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Navbar from './Navbar';
+import styles from "@/styles/PageHeader.module.scss";
 
 const PageHeader = () => {
     return (
-        <div >
+        <div>
             <Navbar />
-            <div className="w-full relative">
-                <div className="h-50 relative">
+            <div className={styles.header}>
+                <div className={styles.banner}>
                     <Image
                         src="/assets/gradient-solid-banner.jpg"
                         alt="Banner Image"
