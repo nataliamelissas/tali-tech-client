@@ -15,10 +15,10 @@ const Navbar = () => {
                 </a>
                 <div className={isOpen ? navStyle.menuOpen : navStyle.menuClosed}>
                     <Link href="/" className={navStyle.navLink}>Home</Link>
-                    <Link href="/courses" className={navStyle.navLink}>Courses</Link>
-                    <Link href="/schools" className={navStyle.navLink}>At Schools</Link>
+                    <Link href="/pages/courses" className={navStyle.navLink}>Courses</Link>
+                    <Link href="/pages/schools" className={navStyle.navLink}>At Schools</Link>
                     {/* meet the teachers, contact, mission/values */}
-                    <Link href="/about" className={navStyle.navLink}>About Us</Link> 
+                    <Link href="/pages/about" className={navStyle.navLink}>About Us</Link> 
                 </div>
                 <div className={navStyle.menuButton}>
                     <button onClick={() => {
