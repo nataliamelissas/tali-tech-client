@@ -11,6 +11,10 @@ import styles from "@/styles/Home.module.scss";
 
 const HomePage = () => {
   const earlyBird = isEarlyBird();
+  const currYear = new Date().toLocaleString("en-US", {
+    timeZone: "America/Denver",
+    year: "numeric",
+  });
 
   return (
     <div className={styles.homePage}>
@@ -22,18 +26,17 @@ const HomePage = () => {
             and <span className={styles.highlight}>Create</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Summer 2026 coding camps for grades 2-11 in Bountiful, Utah.
-            Block-based coding, Python, AI, and more!
+            Empower the next generation of innovators with coding camps in Bountiful, Utah. Expert-led classes in AI, Python, and block-based coding for kids.
           </p>
           {earlyBird && (
             <div className={styles.earlyBirdBanner}>
-              🎉 Early Bird Pricing Available Until April 1, 2026
+              🎉 Early Bird Pricing Available Until April 1, {currYear}
             </div>
           )}
           <div className={styles.heroCtas}>
             <Link href="/camps">
               <Button variant="primary" size="lg">
-                View Summer Camps
+                View Coding Camps
               </Button>
             </Link>
             <Link href="/about">
@@ -57,7 +60,7 @@ const HomePage = () => {
 
       {/* Camps Overview Grid */}
       <section className={styles.campsSection}>
-        <h2 className={styles.sectionTitle}>Summer 2026 Camps</h2>
+        <h2 className={styles.sectionTitle}>Summer {currYear} Camps</h2>
         <p className={styles.sectionSubtitle}>
           Three progressive weeks designed to take students from beginner to
           advanced

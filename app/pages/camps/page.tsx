@@ -5,10 +5,14 @@ import styles from "@/styles/Camps.module.scss";
 
 import type { Metadata } from "next";
 
+export const currYear = new Date().toLocaleString("en-US", {
+    timeZone: "America/Denver",
+    year: "numeric",
+  })
+
 export const metadata: Metadata = {
-  title: "Summer Camps 2026 | TaliTech",
-  description:
-    "Explore our three progressive coding camps for ages 7-16. From block-based coding to Python and AI.",
+  title: `Summer Camp ${currYear} | TaliTech`,
+  description: `Explore our three progressive coding camps for ages 7-16. From block-based coding to Python and AI.`,
 };
 
 export default function CampsPage() {
@@ -18,7 +22,7 @@ export default function CampsPage() {
     <div className={styles.campsPage}>
       {/* Header Section */}
       <section className={styles.header}>
-        <h1 className={styles.title}>Summer 2026 Coding Camps</h1>
+        <h1 className={styles.title}>Summer {currYear} Coding Camps</h1>
         <p className={styles.subtitle}>
           Three progressive weeks designed for grades 2-11. Small class sizes
           (max 10 students), expert instructors, and hands-on project-based
@@ -27,7 +31,7 @@ export default function CampsPage() {
         {earlyBird && (
           <div className={styles.earlyBirdAlert}>
             🎉 <strong>Early Bird Special!</strong> Register before April 1,
-            2026 and save $30 per week.
+            {currYear} and save $30 per week.
           </div>
         )}
       </section>

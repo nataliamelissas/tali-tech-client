@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           {children}
