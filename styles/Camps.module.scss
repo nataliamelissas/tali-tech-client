@@ -1,0 +1,362 @@
+@use './variables.scss';
+@use 'sass:color';
+
+.campsPage {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+// Header Section
+.header {
+  text-align: center;
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+  background-color: variables.$cream;
+
+  @media (max-width: variables.$breakpoint-md) {
+    padding: variables.$spacing-xl variables.$spacing-md;
+  }
+}
+
+.title {
+  font-size: variables.$font-size-4xl;
+  font-weight: 800;
+  color: variables.$heading-color;
+  margin: 0 0 variables.$spacing-md 0;
+
+  @media (max-width: variables.$breakpoint-md) {
+    font-size: variables.$font-size-3xl;
+  }
+}
+
+.subtitle {
+  font-size: variables.$font-size-lg;
+  color: variables.$text-secondary;
+  max-width: 800px;
+  margin: 0 auto variables.$spacing-lg auto;
+  line-height: 1.6;
+}
+
+.earlyBirdAlert {
+  background-color: variables.$lime;
+  color: variables.$text-primary;
+  padding: variables.$spacing-md variables.$spacing-lg;
+  border-radius: variables.$border-radius-md;
+  font-size: variables.$font-size-lg;
+  display: inline-block;
+  box-shadow: variables.$shadow-md;
+}
+
+// Camps Section
+.campsSection {
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-xxl;
+
+  @media (max-width: variables.$breakpoint-md) {
+    padding: variables.$spacing-xl variables.$spacing-md;
+  }
+}
+
+.campCard {
+  background: variables.$white;
+  border-radius: variables.$border-radius-lg;
+  overflow: hidden;
+  box-shadow: variables.$shadow-lg;
+  transition: transform variables.$transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-xl;
+  }
+}
+
+.campImagePlaceholder {
+  background: linear-gradient(135deg, variables.$blue 0%, variables.$pink 100%);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.weekNumber {
+  font-size: variables.$font-size-4xl;
+  font-weight: 800;
+  color: variables.$white;
+}
+
+.campContent {
+  padding: variables.$spacing-lg;
+
+  @media (max-width: variables.$breakpoint-md) {
+    padding: variables.$spacing-md;
+  }
+}
+
+.campHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: variables.$spacing-md;
+  flex-wrap: wrap;
+  gap: variables.$spacing-sm;
+}
+
+.campName {
+  font-size: variables.$font-size-3xl;
+  font-weight: 700;
+  color: variables.$text-primary;
+  margin: 0;
+
+  @media (max-width: variables.$breakpoint-md) {
+    font-size: variables.$font-size-2xl;
+  }
+}
+
+.availability {
+  display: flex;
+  align-items: baseline;
+  padding: variables.$spacing-xs variables.$spacing-md;
+  border-radius: variables.$border-radius-full;
+  font-weight: 600;
+
+  &.low {
+    background-color: color.adjust(variables.$lime, $lightness: 35%);
+    color: color.adjust(variables.$lime, $lightness: -20%);
+  }
+
+  &.medium {
+    background-color: color.adjust(variables.$orange, $lightness: 35%);
+    color: color.adjust(variables.$orange, $lightness: -20%);
+  }
+
+  &.high {
+    background-color: color.adjust(variables.$pink, $lightness: 35%);
+    color: color.adjust(variables.$pink, $lightness: -10%);
+  }
+}
+
+.availabilityNumber {
+  font-size: variables.$font-size-xl;
+  font-weight: 700;
+}
+
+.availabilityText {
+  font-size: variables.$font-size-sm;
+  margin-left: variables.$spacing-xs;
+}
+
+.campMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: variables.$spacing-sm;
+  padding: variables.$spacing-md;
+  background-color: variables.$cream;
+  border-radius: variables.$border-radius-md;
+  margin-bottom: variables.$spacing-md;
+}
+
+.metaItem {
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
+
+  strong {
+    color: variables.$text-primary;
+  }
+}
+
+.campDescription {
+  font-size: variables.$font-size-lg;
+  line-height: 1.8;
+  color: variables.$text-primary;
+  margin: variables.$spacing-md 0;
+}
+
+.campDetails {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-md;
+  margin: variables.$spacing-lg 0;
+}
+
+.detailSection {
+  h4 {
+    font-size: variables.$font-size-lg;
+    color: variables.$text-primary;
+    margin: 0 0 variables.$spacing-sm 0;
+  }
+}
+
+.toolsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-xs;
+}
+
+.toolBadge {
+  background-color: variables.$pink;
+  color: variables.$white;
+  padding: variables.$spacing-xs variables.$spacing-md;
+  border-radius: variables.$border-radius-full;
+  font-size: variables.$font-size-sm;
+  font-weight: 600;
+}
+
+.focusList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: variables.$spacing-xs;
+
+  li {
+    padding-left: variables.$spacing-md;
+    position: relative;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: variables.$lime;
+      font-weight: 700;
+    }
+  }
+}
+
+.prerequisites {
+  background-color: color.adjust(variables.$blue, $lightness: 45%);
+  padding: variables.$spacing-sm variables.$spacing-md;
+  border-radius: variables.$border-radius-md;
+  border-left: 4px solid variables.$blue;
+  margin: 0;
+}
+
+.pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: variables.$spacing-lg;
+  padding-top: variables.$spacing-lg;
+  border-top: 2px solid variables.$cream;
+  margin-top: variables.$spacing-lg;
+
+  @media (max-width: variables.$breakpoint-md) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.priceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-sm;
+}
+
+.mainPrice {
+  display: flex;
+  align-items: baseline;
+  gap: variables.$spacing-xs;
+}
+
+.priceAmount {
+  font-size: variables.$font-size-4xl;
+  font-weight: 800;
+  color: variables.$blue;
+}
+
+.priceLabel {
+  font-size: variables.$font-size-base;
+  color: variables.$text-secondary;
+}
+
+.additionalFees {
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.savingsBadge {
+  background-color: variables.$lime;
+  color: variables.$text-primary;
+  padding: variables.$spacing-xs variables.$spacing-md;
+  border-radius: variables.$border-radius-md;
+  font-weight: 700;
+  display: inline-block;
+  font-size: variables.$font-size-sm;
+}
+
+.campActions {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-sm;
+  min-width: 250px;
+
+  @media (max-width: variables.$breakpoint-md) {
+    min-width: 100%;
+  }
+}
+
+// Info Section
+.infoSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: variables.$spacing-lg;
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+  background-color: variables.$cream;
+
+  @media (max-width: variables.$breakpoint-md) {
+    padding: variables.$spacing-xl variables.$spacing-md;
+  }
+}
+
+.infoCard {
+  background: variables.$white;
+  padding: variables.$spacing-lg;
+  border-radius: variables.$border-radius-md;
+  box-shadow: variables.$shadow-sm;
+
+  h3 {
+    font-size: variables.$font-size-xl;
+    color: variables.$text-primary;
+    margin: 0 0 variables.$spacing-md 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: variables.$spacing-xs 0;
+      padding-left: variables.$spacing-md;
+      position: relative;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: variables.$lime;
+        font-weight: 700;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+
+    a {
+      color: variables.$blue;
+      text-decoration: underline;
+
+      &:hover {
+        color: color.adjust(variables.$blue, $lightness: -10%);
+      }
+    }
+  }
+}

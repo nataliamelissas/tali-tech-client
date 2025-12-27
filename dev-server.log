@@ -1,0 +1,11 @@
+
+> tali-tech-client@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+   ▲ Next.js 15.1.7
+   - Local:        http://localhost:3001
+   - Network:      http://172.22.112.1:3001
+
+ ✓ Starting...
+ ✓ Ready in 488.9s

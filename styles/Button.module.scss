@@ -1,0 +1,79 @@
+@use './variables.scss';
+@use 'sass:color';
+
+.button {
+  font-family: variables.$font-family-base;
+  font-weight: 600;
+  border: none;
+  border-radius: variables.$border-radius-md;
+  cursor: pointer;
+  transition: all variables.$transition-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover:not(.disabled) {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadow-md;
+  }
+
+  &:active:not(.disabled) {
+    transform: translateY(0);
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Variants
+.primary {
+  background-color: variables.$lime;
+  color: variables.$text-primary;
+
+  &:hover:not(.disabled) {
+    background-color: color.adjust(variables.$lime, $lightness: -10%);
+  }
+}
+
+.secondary {
+  background-color: variables.$blue;
+  color: variables.$white;
+
+  &:hover:not(.disabled) {
+    background-color: color.adjust(variables.$blue, $lightness: -10%);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border: 2px solid variables.$lime;
+  color: variables.$lime;
+
+  &:hover:not(.disabled) {
+    background-color: color.adjust(variables.$lime, $lightness: -10%);
+    color: variables.$text-primary;
+  }
+}
+
+// Sizes
+.sm {
+  padding: variables.$spacing-xs variables.$spacing-sm;
+  font-size: variables.$font-size-sm;
+}
+
+.md {
+  padding: variables.$spacing-sm variables.$spacing-md;
+  font-size: variables.$font-size-base;
+}
+
+.lg {
+  padding: variables.$spacing-md variables.$spacing-lg;
+  font-size: variables.$font-size-lg;
+}
+
+.fullWidth {
+  width: 100%;
+}
