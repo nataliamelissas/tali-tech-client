@@ -1,159 +1,349 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+@use './variables.scss';
+@use 'sass:color';
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+.homePage {
+  width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+// Hero Section
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: variables.$spacing-xl;
+  align-items: center;
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+  background-color: variables.$cream;
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
+  @media (max-width: variables.$breakpoint-md) {
+    grid-template-columns: 1fr;
+    padding: variables.$spacing-lg variables.$spacing-md;
+    text-align: center;
   }
 }
 
-.main {
+.heroContent {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: variables.$spacing-md;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+.heroTitle {
+  font-size: variables.$font-size-4xl;
+  font-weight: 800;
+  color: variables.$text-primary;
+  line-height: 1.2;
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+
+  @media (max-width: variables.$breakpoint-md) {
+    font-size: variables.$font-size-3xl;
+  }
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.highlight {
+  color: variables.$blue;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+.heroSubtitle {
+  font-size: variables.$font-size-xl;
+  color: variables.$text-secondary;
+  margin: 0;
+
+  @media (max-width: variables.$breakpoint-md) {
+    font-size: variables.$font-size-lg;
+  }
+}
+
+.earlyBirdBanner {
+  background-color: variables.$lime;
+  color: variables.$text-primary;
+  padding: variables.$spacing-sm variables.$spacing-md;
+  border-radius: variables.$border-radius-md;
+  font-weight: 600;
+  text-align: center;
+}
+
+.heroCtas {
+  display: flex;
+  gap: variables.$spacing-md;
+
+  @media (max-width: variables.$breakpoint-md) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: variables.$breakpoint-md) {
+    margin-top: variables.$spacing-lg;
+  }
+
+  img {
+    border-radius: variables.$border-radius-lg;
+    box-shadow: variables.$shadow-xl;
+  }
+}
+
+// Section Styles
+.campsSection,
+.whySection,
+.testimonialsSection,
+.ctaSection {
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+
+  @media (max-width: variables.$breakpoint-md) {
+    padding: variables.$spacing-xl variables.$spacing-md;
+  }
+}
+
+.sectionTitle {
+  font-size: variables.$font-size-3xl;
+  font-weight: 700;
+  color: variables.$heading-color;
+  text-align: center;
+  margin: 0 0 variables.$spacing-sm 0;
+}
+
+.sectionSubtitle {
+  font-size: variables.$font-size-lg;
+  color: variables.$text-secondary;
+  text-align: center;
+  margin: 0 0 variables.$spacing-xl 0;
+}
+
+// Camps Grid
+.campsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: variables.$spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.campCard {
+  background: variables.$white;
+  border-radius: variables.$border-radius-lg;
+  padding: variables.$spacing-lg;
+  box-shadow: variables.$shadow-md;
+  transition: transform variables.$transition-base;
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-sm;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: variables.$shadow-xl;
+  }
+}
+
+.campHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: variables.$spacing-sm;
+}
+
+.weekBadge {
+  background-color: variables.$blue;
+  color: variables.$white;
+  padding: variables.$spacing-xs variables.$spacing-sm;
+  border-radius: variables.$border-radius-full;
+  font-size: variables.$font-size-sm;
   font-weight: 600;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.availabilityBadge {
+  background-color: variables.$cream;
+  color: variables.$text-primary;
+  padding: variables.$spacing-xs variables.$spacing-sm;
+  border-radius: variables.$border-radius-full;
+  font-size: variables.$font-size-xs;
+  font-weight: 600;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
+.campName {
+  font-size: variables.$font-size-2xl;
+  font-weight: 700;
+  color: variables.$text-primary;
+  margin: 0;
+}
+
+.campDates,
+.campTime {
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
+  margin: 0;
+}
+
+.campDescription {
+  font-size: variables.$font-size-base;
+  color: variables.$text-primary;
+  line-height: 1.6;
+  margin: variables.$spacing-sm 0;
+  flex-grow: 1;
+}
+
+.campTools {
   display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-xs;
+  margin: variables.$spacing-sm 0;
+}
+
+.toolTag {
+  background-color: variables.$pink;
+  color: variables.$white;
+  padding: variables.$spacing-xs variables.$spacing-sm;
+  border-radius: variables.$border-radius-sm;
+  font-size: variables.$font-size-xs;
+  font-weight: 600;
+}
+
+.campPricing {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  margin: variables.$spacing-sm 0;
+  padding-top: variables.$spacing-sm;
+  border-top: 1px solid variables.$cream;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
+.price {
   display: flex;
-  gap: 24px;
+  align-items: baseline;
+  gap: variables.$spacing-xs;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.priceAmount {
+  font-size: variables.$font-size-2xl;
+  font-weight: 700;
+  color: variables.$blue;
 }
 
-.footer img {
-  flex-shrink: 0;
+.priceLabel {
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.savings {
+  background-color: variables.$lime;
+  color: variables.$text-primary;
+  padding: variables.$spacing-xs variables.$spacing-sm;
+  border-radius: variables.$border-radius-sm;
+  font-size: variables.$font-size-xs;
+  font-weight: 700;
+}
+
+// Why Section
+.whySection {
+  background-color: variables.$cream;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: variables.$spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whyCard {
+  background: variables.$white;
+  border-radius: variables.$border-radius-lg;
+  padding: variables.$spacing-lg;
+  text-align: center;
+  box-shadow: variables.$shadow-sm;
+
+  h3 {
+    font-size: variables.$font-size-xl;
+    color: variables.$text-primary;
+    margin: variables.$spacing-sm 0;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  p {
+    color: variables.$text-secondary;
+    line-height: 1.6;
+    margin: 0;
   }
+}
 
-  .footer a:hover {
+.whyIcon {
+  font-size: variables.$font-size-3xl;
+  margin-bottom: variables.$spacing-sm;
+}
+
+// Testimonials Section
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: variables.$spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto variables.$spacing-lg auto;
+}
+
+.testimonialCard {
+  background: variables.$white;
+  border-radius: variables.$border-radius-lg;
+  padding: variables.$spacing-lg;
+  box-shadow: variables.$shadow-md;
+  border-left: 4px solid variables.$lime;
+}
+
+.rating {
+  font-size: variables.$font-size-lg;
+  margin-bottom: variables.$spacing-sm;
+}
+
+.testimonialText {
+  font-size: variables.$font-size-base;
+  color: variables.$text-primary;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 variables.$spacing-md 0;
+}
+
+.testimonialAuthor {
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
+  font-weight: 600;
+  margin: 0;
+}
+
+.moreReviews {
+  text-align: center;
+  font-size: variables.$font-size-sm;
+  color: variables.$text-secondary;
+
+  a {
+    color: variables.$blue;
     text-decoration: underline;
-    text-underline-offset: 4px;
+
+    &:hover {
+      color: color.adjust(variables.$blue, $lightness: -10%);
+    }
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
+// CTA Section
+.ctaSection {
+  background: linear-gradient(135deg, variables.$blue 0%, variables.$pink 100%);
+  color: variables.$white;
+  text-align: center;
+  padding: variables.$spacing-xxl variables.$spacing-lg;
+}
 
-  .main {
-    align-items: center;
-  }
+.ctaTitle {
+  font-size: variables.$font-size-3xl;
+  font-weight: 700;
+  margin: 0 0 variables.$spacing-sm 0;
+  color: variables.$white;
+}
 
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+.ctaSubtitle {
+  font-size: variables.$font-size-xl;
+  margin: 0 0 variables.$spacing-lg 0;
+  color: rgba(255, 255, 255, 0.9);
 }
