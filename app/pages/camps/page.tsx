@@ -5,7 +5,7 @@ import styles from "@/styles/Camps.module.scss";
 
 import type { Metadata } from "next";
 
-export const currYear = new Date().toLocaleString("en-US", {
+const currYear = new Date().toLocaleString("en-US", {
     timeZone: "America/Denver",
     year: "numeric",
   })
