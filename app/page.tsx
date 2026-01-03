@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import HomePage from "./pages/home/page";
+// import HomePage from "./pages/home/page";
+import Login from "./pages/login/page";
 
 export const metadata: Metadata = {
   title: `TaliTech - Summer Coding Camps ${new Date().toLocaleString("en-US", {
@@ -11,5 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HomePage />;
+  return <Login />;
+  // return <HomePage />;
 }
